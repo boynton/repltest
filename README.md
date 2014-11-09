@@ -8,6 +8,6 @@ A simple example of using the repl library
     cd repltest
     export GOPATH=`pwd`
     go get github.com/boynton/repl
-    go build repltest
+    go install repltest
 
     ./bin/repltest
