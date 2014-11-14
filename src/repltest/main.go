@@ -31,6 +31,10 @@ func (th *TestHandler) Reset() {
 	th.value = ""
 }
 
+func (th *TestHandler) Prompt() string {
+	return "> "
+}
+
 func main() {
 	repl.REPL(new(TestHandler))
 }
