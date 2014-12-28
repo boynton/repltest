@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"fmt"
 	"github.com/boynton/repl"
 	"strings"
 )
@@ -30,9 +31,22 @@ func (th *TestHandler) Eval(expr string) (interface{}, bool, error) {
 func (th *TestHandler) Reset() {
 	th.value = ""
 }
+func (th *TestHandler) Start() []string {
+	fmt.Println("Load and return persistent history here")
+	return nil
+}
+func (th *TestHandler) Stop(history []string) {
+	fmt.Printf("Save %d lines of history here\n", len(history))
+}
 
 func (th *TestHandler) Prompt() string {
 	return "> "
+}
+
+func (th *TestHandler) Complete(expr string) (string, []string) {
+	//expr is what has been typed so far. Return any more text we can autocomplete,
+	//and the slice of options that remain possible
+	return "", nil
 }
 
 func main() {
